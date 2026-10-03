@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
     && uv python install 3.11 \
-    && uv venv --python 3.11 "$VIRTUAL_ENV"
+    && uv venv --python 3.11 --seed "$VIRTUAL_ENV"
 
 WORKDIR /app
 
