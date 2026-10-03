@@ -38,6 +38,8 @@ def publish_artifacts(directory: Path, job_id: str) -> dict[str, dict[str, Any]]
     for path in sorted(directory.rglob("*")):
         if not path.is_file() or path.suffix.lower() not in _ALLOWED_SUFFIXES:
             continue
+        if path.name == "serverless-request.json":
+            continue
 
         relative = path.relative_to(directory).as_posix()
         key = f"{settings.s3_prefix}/{job_id}/{relative}"
