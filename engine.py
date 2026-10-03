@@ -132,8 +132,10 @@ class SheetSage2Engine:
             reason = result.get("abc_error") or "no ABC score was produced"
             raise RuntimeError(f"melody-only ABC unavailable: {reason}")
 
+        debug_request = dict(data)
+        debug_request["source_audio_url"] = "[redacted]"
         (output_dir / "serverless-request.json").write_text(
-            json.dumps(data, ensure_ascii=False, indent=2),
+            json.dumps(debug_request, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
 
