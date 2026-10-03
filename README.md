@@ -55,6 +55,18 @@ The ABC is returned inline so an orchestrator can immediately call YuE2 with:
 }
 ```
 
+## Current RunPod deployment
+
+- Endpoint: `g17dorwifa30v1`
+- Template: `9npjb2n46u`
+- Image: `ghcr.io/hexadi/sheetsage2-serverless:sha-93b3cf9`
+- GPU baseline: NVIDIA GeForce RTX 4090
+- Workers: min 0 / max 1
+- Idle timeout: 30 seconds
+- Execution timeout: 3600 seconds
+
+The first synthetic melody smoke test completed successfully with `abc_error=null`, no warnings, and a valid melody-only ABC score. The recorded RunPod job reported about 147.5 seconds of queue/cold-start delay on the first image pull and about 1.7 seconds of handler execution for the short test clip.
+
 ## RunPod CLI
 
 ```bash
